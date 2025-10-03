@@ -1,0 +1,8 @@
+df_nutrition['main_category'] = df_nutrition['categories'].str.split(',').str[0]
+
+category_stats = df_nutrition.groupby('main_category')[['energy_100g','proteins_100g','carbohydrates_100g','fat_100g']].mean().sort_values("energy_100g", ascending=False).head(10)
+
+plt.figure(figsize=(12,6))
+sns.heatmap(category_stats, annot=True, cmap="YlGnBu")
+plt.title("Средние значения по категориям (топ-10)")
+plt.show()
