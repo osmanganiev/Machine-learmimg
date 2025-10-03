@@ -1,0 +1,10 @@
+plt.figure(figsize=(12,5))
+sns.boxplot(data=df_nutrition, x="nutriscore_grade", y="energy_100g", order=list("abcde"))
+plt.title("Энергия по Nutri-Score")
+plt.show()
+
+plt.figure(figsize=(12,5))
+sns.boxplot(data=df_nutrition, x="nutriscore_grade", y="sugars_100g", order=list("abcde"))
+sns.stripplot(data=df_nutrition, x="nutriscore_grade", y="sugars_100g", color="black", alpha=0.3)
+plt.title("Сахар по Nutri-Score")
+plt.show()
