@@ -1,0 +1,4 @@
+sns.scatterplot(data=df_nutrition, x="energy_100g", y="proteins_100g",
+                hue="nutriscore_grade", alpha=0.5)
+plt.title("Энергия vs Белок (с Nutri-Score)")
+plt.show()
