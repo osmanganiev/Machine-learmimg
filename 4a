@@ -1,0 +1,4 @@
+sns.pairplot(df_nutrition[['energy_100g', 'proteins_100g', 'carbohydrates_100g', 'fat_100g', 'nutriscore_grade']],
+             hue="nutriscore_grade", diag_kind="kde")
+plt.show()
+
