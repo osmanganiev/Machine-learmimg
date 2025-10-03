@@ -1,0 +1,17 @@
+# Берём подвыборку для скорости
+df_sample = df_nutrition[['energy_100g', 'proteins_100g', 'carbohydrates_100g', 'fat_100g', 'nutriscore_grade']].sample(1000, random_state=42)
+
+plt.figure(figsize=(12,6))
+andrews_curves(df_sample, "nutriscore_grade")
+plt.title("Кривые Эндрюса")
+plt.show()
+
+plt.figure(figsize=(12,6))
+parallel_coordinates(df_sample, "nutriscore_grade", colormap="cool")
+plt.title("Параллельные координаты")
+plt.show()
+
+plt.figure(figsize=(8,8))
+radviz(df_sample, "nutriscore_grade")
+plt.title("RadViz кластеризация")
+plt.show()
