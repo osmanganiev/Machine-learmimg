@@ -1,0 +1,25 @@
+# Выбираем ключевые столбцы
+nutritional_columns = [
+    'product_name', 'categories', 'countries',
+    'energy_100g', 'proteins_100g', 'carbohydrates_100g',
+    'fat_100g', 'sugars_100g', 'sodium_100g', 'nutriscore_grade'
+]
+
+df_nutrition = df[nutritional_columns].copy()
+
+# Удаляем строки с пропусками
+df_nutrition.dropna(subset=[
+    'energy_100g', 'proteins_100g', 'carbohydrates_100g',
+    'fat_100g', 'sugars_100g', 'sodium_100g', 'nutriscore_grade'
+], inplace=True)
+
+# Убираем явные выбросы
+df_nutrition = df_nutrition[(df_nutrition['energy_100g'] > 0) & (df_nutrition['energy_100g'] < 1000)]
+
+print("Размер очищенного датасета:", df_nutrition.shape)
+print("Nutri-Score распределение:")
+print(df_nutrition['nutriscore_grade'].value_counts())
+
+sns.countplot(data=df_nutrition, x="nutriscore_grade", order=list("abcde"))
+plt.title("Распределение Nutri-Score")
+plt.show()
