@@ -1,0 +1,9 @@
+# Загружаем датасет (TSV)
+df = pd.read_csv("en.openfoodfacts.org.products.tsv", sep='\t', low_memory=False)
+
+print("Размер датасета:", df.shape)
+print("Столбцов:", len(df.columns))
+print("\nТипы данных:")
+print(df.dtypes.head(20))
+
+df.head()
