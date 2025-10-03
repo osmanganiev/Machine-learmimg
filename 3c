@@ -1,0 +1,8 @@
+sns.violinplot(data=df_nutrition, x="nutriscore_grade", y="fat_100g", order=list("abcde"))
+plt.title("Жиры по Nutri-Score")
+plt.show()
+
+sns.kdeplot(data=df_nutrition, x="proteins_100g", hue="nutriscore_grade", fill=True, common_norm=False)
+plt.title("Распределение белка по Nutri-Score")
+plt.show()
+
